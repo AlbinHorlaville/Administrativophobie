@@ -1,10 +1,16 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class UpdateScreenMessage : MonoBehaviour
 {
     public TMP_Text textObject;
-    
+    public GameObject DocumentPrefab;
+    public Vector3 spawnPosition;
+
+    public List<GameObject> documents = new List<GameObject>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +22,44 @@ public class UpdateScreenMessage : MonoBehaviour
         {
             Debug.LogError("TextObject is not assigned!");
         }
+
+        if (DocumentPrefab != null)
+        {
+            Quaternion spawnRotation = Quaternion.identity;
+
+            GameObject doc = Instantiate(DocumentPrefab);
+            doc.name = "Déclaration d'impôt";
+            ValidDocument validDoc = doc.GetComponent<ValidDocument>();
+            validDoc.textMeshMap[0].text = doc.name;
+            documents.Add(doc);
+
+            doc = Instantiate(DocumentPrefab);
+            doc.name = "Dossier d'inscription a la piscine";
+            validDoc = doc.GetComponent<ValidDocument>();
+            validDoc.textMeshMap[0].text = doc.name;
+            documents.Add(doc);
+
+            doc = Instantiate(DocumentPrefab);
+            doc.name = "Résiliation d'abonnement";
+            validDoc = doc.GetComponent<ValidDocument>();
+            validDoc.textMeshMap[0].text = doc.name;
+            documents.Add(doc);
+        }
+        else
+        {
+            Debug.LogError("Prefab not assigned!");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        textObject.text = "Documents en attente :";
+        foreach (GameObject document in documents)
+        {
+            textObject.text += "\n - " + document.name;
+            document.SetActive(false);
+        }
+        documents[0].SetActive(true);
     }
 }
