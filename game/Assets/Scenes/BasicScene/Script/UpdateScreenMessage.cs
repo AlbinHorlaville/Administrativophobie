@@ -7,7 +7,6 @@ public class UpdateScreenMessage : MonoBehaviour
 {
     public TMP_Text textObject;
     public GameObject DocumentPrefab;
-    public Vector3 spawnPosition;
 
     public List<GameObject> documents = new List<GameObject>();
 
@@ -25,8 +24,6 @@ public class UpdateScreenMessage : MonoBehaviour
 
         if (DocumentPrefab != null)
         {
-            Quaternion spawnRotation = Quaternion.identity;
-
             GameObject doc = Instantiate(DocumentPrefab);
             doc.name = "Déclaration d'impôt";
             ValidDocument validDoc = doc.GetComponent<ValidDocument>();
@@ -37,12 +34,14 @@ public class UpdateScreenMessage : MonoBehaviour
             doc.name = "Dossier d'inscription a la piscine";
             validDoc = doc.GetComponent<ValidDocument>();
             validDoc.textMeshMap[0].text = doc.name;
+            doc.SetActive(false);
             documents.Add(doc);
 
             doc = Instantiate(DocumentPrefab);
             doc.name = "Résiliation d'abonnement";
             validDoc = doc.GetComponent<ValidDocument>();
             validDoc.textMeshMap[0].text = doc.name;
+            doc.SetActive(false);
             documents.Add(doc);
         }
         else
