@@ -27,32 +27,26 @@ public class UpdateScreenMessage : MonoBehaviour
             GameObject doc = Instantiate(DocumentPrefab);
             doc.name = "Déclaration d'impôt";
             ValidDocument validDoc = doc.GetComponent<ValidDocument>();
-            validDoc.textMeshMap[0].text = doc.name;
+            validDoc.titre.text = doc.name;
             documents.Add(doc);
 
             doc = Instantiate(DocumentPrefab);
             doc.name = "Dossier d'inscription a la piscine";
             validDoc = doc.GetComponent<ValidDocument>();
             validDoc.textMeshMap[0].text = doc.name;
-            doc.SetActive(false);
             documents.Add(doc);
 
             doc = Instantiate(DocumentPrefab);
             doc.name = "Résiliation d'abonnement";
             validDoc = doc.GetComponent<ValidDocument>();
             validDoc.textMeshMap[0].text = doc.name;
-            doc.SetActive(false);
             documents.Add(doc);
         }
         else
         {
             Debug.LogError("Prefab not assigned!");
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         textObject.text = "Documents en attente :";
         foreach (GameObject document in documents)
         {
@@ -60,5 +54,11 @@ public class UpdateScreenMessage : MonoBehaviour
             document.SetActive(false);
         }
         documents[0].SetActive(true);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }
