@@ -1,13 +1,26 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class ValidDocument : MonoBehaviour
 {
     public List<TextMeshPro> textMeshMap = new List<TextMeshPro>();
-    public List<int> papers = new List<int>() { };
+    private List<int> papers = new List<int>() { };
     public TextMeshPro tampon;
     public TextMeshPro titre;
+    public XRSocketInteractor socket;
+
+    // Create a Dictionary with paper interactable object name as the key, and their index in the textMeshMap as the value
+    private Dictionary<string, int> paperMap = new Dictionary<string, int>() {
+        { "ID Card Copy", 0 },
+        { "Vital Card Copy", 1 },
+        { "Driving License Copy", 2 },
+        { "Swimming Pool Card Copy", 3 },
+        { "Fidelity Card Copy", 4 }
+    };
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,31 +55,42 @@ public class ValidDocument : MonoBehaviour
 
         // Désactiver le tampon de validation
         tampon.enabled = false;
-    }
 
-    int i = 0;
+        // Subscribe to events
+        socket.selectEntered.AddListener(OnObjectPlaced);
+    }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (i%1000 == 0){
-            ValidatePaper(i/1000);
-            Debug.Log("Validate Papers"+i/1000);
-        }
-        ++i;
-    }
+    void Update() {}
 
-    void ValidatePaper(int i){
-        if (!papers.Contains(i)){
+    void ValidatePaper(int index){
+        if (!papers.Contains(index)){
             return;
         }
-        papers.Remove(i);
-        textMeshMap[i].color = new Color(0, 0.5f, 0);
+        papers.Remove(index);
+        textMeshMap[index].color = new Color(0, 0.5f, 0);
     }
 
     void Tamponner(){
         if (papers.Count == 0){
             tampon.enabled = true;
+        }
+    }
+
+    private void OnObjectPlaced(SelectEnterEventArgs args)
+    {
+        if (args.interactableObject != null)
+        {
+            ValidatePaper(paperMap[args.interactableObject.transform.name]);
+            Destroy(args.interactableObject.transform.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Stamp" && transform.position.y < collision.transform.position.y)
+        {
+            Tamponner();
         }
     }
 }
