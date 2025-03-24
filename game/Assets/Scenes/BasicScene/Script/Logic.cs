@@ -19,8 +19,9 @@ public class Logic : MonoBehaviour
         
     }
 
-    public void UpdateScoreMesh()
+    public void UpdateScore(int scoreToAdd)
     {
+        score += scoreToAdd;
         scoreMesh.text = "" + score;
     }
 }

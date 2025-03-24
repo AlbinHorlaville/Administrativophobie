@@ -93,4 +93,19 @@ public class ValidDocument : MonoBehaviour
             Tamponner();
         }
     }
+
+    public string GetInvalidReason()
+    {
+        string reason = "";
+        if (papers.Count > 0)
+        {
+            reason = "document";
+        }
+        else if (tampon.enabled == false)
+        {
+            reason = "tampon";
+        }
+
+        return reason;
+    }
 }

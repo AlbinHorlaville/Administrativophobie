@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UpdateScreenMessage : MonoBehaviour
 {
@@ -60,5 +61,24 @@ public class UpdateScreenMessage : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void DocumentSubmitted()
+    {
+        if (documents.Count > 0)
+        {
+            documents.RemoveAt(0);
+            textObject.text = "Documents en attente :";
+            foreach (GameObject document in documents)
+            {
+                textObject.text += "\n - " + document.name;
+                document.SetActive(false);
+            }
+            documents[0].SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 }
