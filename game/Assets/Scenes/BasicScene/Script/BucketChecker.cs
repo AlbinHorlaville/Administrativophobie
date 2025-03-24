@@ -26,4 +26,6 @@ public class BucketChecker : MonoBehaviour
             bucketPopup.GetComponent<BucketPopup>().UpdateText(scoreMult);
         }
     }
+
+
 }

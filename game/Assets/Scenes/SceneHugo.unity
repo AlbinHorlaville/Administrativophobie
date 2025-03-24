@@ -1709,6 +1709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textObject: {fileID: 2009213743}
   DocumentPrefab: {fileID: 0}
+  WinningScreenPrefab: {fileID: 7391616514977960968, guid: 8987915ae7cafa844845d06adca2f613, type: 3}
   documents: []
 --- !u!4 &851019570 stripped
 Transform:
@@ -3199,6 +3200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   socket: {fileID: 1191267966}
   invalidDocPopupPrefab: {fileID: 7391616514977960968, guid: 7c444708bd6c4d340b9d2730c143b6ba, type: 3}
+  screenMessageUpdater: {fileID: 0}
+  logic: {fileID: 0}
 --- !u!1001 &1817891040
 PrefabInstance:
   m_ObjectHideFlags: 0

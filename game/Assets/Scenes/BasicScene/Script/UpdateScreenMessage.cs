@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class UpdateScreenMessage : MonoBehaviour
 {
     public TMP_Text textObject;
     public GameObject DocumentPrefab;
+    public GameObject WinningScreenPrefab;
 
     public List<GameObject> documents = new List<GameObject>();
 
@@ -78,7 +80,7 @@ public class UpdateScreenMessage : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Menu");
+            Instantiate(WinningScreenPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         }
     }
 }
