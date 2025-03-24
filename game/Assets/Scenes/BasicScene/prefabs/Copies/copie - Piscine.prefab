@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4483274008277411328}
   - component: {fileID: 7164326530385968497}
   m_Layer: 0
-  m_Name: CardCopy
+  m_Name: copie - Piscine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8848810374240701247, guid: a7fece56e59d2da4d815a2b0c9ba78fb, type: 3}
+  - {fileID: 2100000, guid: 0737e47cc57887e40a92c447155697d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

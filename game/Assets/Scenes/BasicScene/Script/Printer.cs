@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
@@ -7,7 +10,8 @@ public class Printer : MonoBehaviour
 
     public XRSocketInteractor socket;
     public Transform paperSpawnTransform;
-    public GameObject cardCopyPrefab;
+    public List<GameObject> cards = new List<GameObject>();
+    public List<GameObject> cardCopies = new List<GameObject>();
 
     private void OnEnable()
     {
@@ -33,13 +37,13 @@ public class Printer : MonoBehaviour
     {
         if (args.interactableObject != null)
         {
-            GameObject cardCopy = Instantiate(cardCopyPrefab, paperSpawnTransform.position, Quaternion.Euler(-90, 0, 90));
-            switch (args.interactableObject.transform.name) {
-                case "ID Card" :
-                    cardCopy.name = "ID Card Copy";
-                    break;
-                default :
-                    break;
+            GameObject cardCopy;
+            for (int i = 0; i < cards.Count; i++){
+                if (args.interactableObject.GetType() == cards[i].GetType()){
+                    cardCopy = Instantiate(cardCopies[i], paperSpawnTransform.position, Quaternion.Euler(-90, 0, 90));
+                    cardCopy.name = "copie - " + args.interactableObject.transform.name;
+                    return;
+                }
             }
         }
     }
