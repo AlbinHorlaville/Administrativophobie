@@ -351,15 +351,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   socket: {fileID: 2492525781132050157}
   paperSpawnTransform: {fileID: 1073246501292425389}
-  cards:
-  - {fileID: 5150623741100583575, guid: 3da9a6a8ba89dd24190af21810156901, type: 3}
-  - {fileID: 5150623741100583575, guid: f9eaf326383454542a3f27d22f19c104, type: 3}
-  - {fileID: 5150623741100583575, guid: a7b1436abcc765940a7727a93bdadb72, type: 3}
-  - {fileID: 5150623741100583575, guid: ea6f66e74ed462940bb8b8de7d0be6f9, type: 3}
-  - {fileID: 5150623741100583575, guid: 079b6c3614be47340b38301ba3dc34da, type: 3}
   cardCopies:
   - {fileID: 1090006580139028760, guid: 633d1b8cb0b7e1a4aa0c33e56e10c692, type: 3}
-  - {fileID: 1090006580139028760, guid: 3d77add90f5a7b04bb2d0cbed77a4701, type: 3}
   - {fileID: 1090006580139028760, guid: f8ebd227af3568342b6d76957b4ed6c1, type: 3}
+  - {fileID: 1090006580139028760, guid: 3d77add90f5a7b04bb2d0cbed77a4701, type: 3}
   - {fileID: 1090006580139028760, guid: 71a10217a1cc9fb4a94a3ee7a468b5fc, type: 3}
   - {fileID: 1090006580139028760, guid: d78ec843d0d949e4a9f382baf76dcd8c, type: 3}

@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 1938759691709301854}
   - component: {fileID: 2766285512835365782}
   - component: {fileID: 2350730970005330849}
+  - component: {fileID: 7597466471987195012}
   m_Layer: 0
-  m_Name: Carte Vitale
+  m_Name: Swimming Pool Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +74,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 045dcf8bd8f45ce46b56567a20cfa339, type: 2}
+  - {fileID: 2100000, guid: 97b6d1b632877e649ac959acd6e24b4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -289,3 +290,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5150623741100583575}
   m_CullTransparentMesh: 1
+--- !u!114 &7597466471987195012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150623741100583575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75ab140e5ddd7045a0246ae3bc4daee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3

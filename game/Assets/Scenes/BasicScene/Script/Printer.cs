@@ -1,6 +1,5 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
@@ -10,7 +9,6 @@ public class Printer : MonoBehaviour
 
     public XRSocketInteractor socket;
     public Transform paperSpawnTransform;
-    public List<GameObject> cards = new List<GameObject>();
     public List<GameObject> cardCopies = new List<GameObject>();
 
     private void OnEnable()
@@ -33,20 +31,28 @@ public class Printer : MonoBehaviour
         socket.selectExited.RemoveListener(OnObjectRemoved);
     }
 
-    private void OnObjectPlaced(SelectEnterEventArgs args)
+private void OnObjectPlaced(SelectEnterEventArgs args)
+{
+    if (args.interactableObject != null)
     {
-        if (args.interactableObject != null)
+        StartCoroutine(DelayedObjectPlacement(args, 5f)); // Lance un timer de 5 secondes
+    }
+}
+
+private IEnumerator DelayedObjectPlacement(SelectEnterEventArgs args, float delay)
+{
+    yield return new WaitForSeconds(delay);
+
+    if (args.interactableObject != null)
+    {
+        idCard component = args.interactableObject.transform.GetComponent<idCard>();
+        if (component != null)
         {
-            GameObject cardCopy;
-            for (int i = 0; i < cards.Count; i++){
-                if (args.interactableObject.GetType() == cards[i].GetType()){
-                    cardCopy = Instantiate(cardCopies[i], paperSpawnTransform.position, Quaternion.Euler(-90, 0, 90));
-                    cardCopy.name = "copie - " + args.interactableObject.transform.name;
-                    return;
-                }
-            }
+            GameObject o = Instantiate(cardCopies[component.id], paperSpawnTransform.position, Quaternion.Euler(-90, 0, 90));
+            Debug.Log(o.name);
         }
     }
+}
 
     private void OnObjectRemoved(SelectExitEventArgs args) {}
 }

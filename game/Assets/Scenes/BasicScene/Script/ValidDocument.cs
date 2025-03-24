@@ -81,8 +81,11 @@ public class ValidDocument : MonoBehaviour
     {
         if (args.interactableObject != null)
         {
-            ValidatePaper(paperMap[args.interactableObject.transform.name]);
-            Destroy(args.interactableObject.transform.gameObject);
+            idCard component = args.interactableObject.transform.GetComponent<idCard>();
+            if (component != null){
+                ValidatePaper(component.id);
+                Destroy(args.interactableObject.transform.gameObject);
+            }
         }
     }
 
