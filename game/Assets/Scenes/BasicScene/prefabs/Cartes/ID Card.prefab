@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1938759691709301854}
   - component: {fileID: 2766285512835365782}
   - component: {fileID: 2350730970005330849}
+  - component: {fileID: 2936481683945268330}
   m_Layer: 0
   m_Name: ID Card
   m_TagString: Untagged
@@ -289,3 +290,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5150623741100583575}
   m_CullTransparentMesh: 1
+--- !u!114 &2936481683945268330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150623741100583575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75ab140e5ddd7045a0246ae3bc4daee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
