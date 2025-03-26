@@ -10,6 +10,7 @@ public class Printer : MonoBehaviour
     public XRSocketInteractor socket;
     public Transform paperSpawnTransform;
     public List<GameObject> cardCopies = new List<GameObject>();
+    public AudioSource bruitImpression;
 
     private void OnEnable()
     {
@@ -35,12 +36,13 @@ private void OnObjectPlaced(SelectEnterEventArgs args)
 {
     if (args.interactableObject != null)
     {
-        StartCoroutine(DelayedObjectPlacement(args, 5f)); // Lance un timer de 5 secondes
+        StartCoroutine(DelayedObjectPlacement(args, 7f)); // Lance un timer de 5 secondes
     }
 }
 
 private IEnumerator DelayedObjectPlacement(SelectEnterEventArgs args, float delay)
 {
+    bruitImpression.Play();
     yield return new WaitForSeconds(delay);
 
     if (args.interactableObject != null)

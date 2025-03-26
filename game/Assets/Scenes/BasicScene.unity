@@ -2531,17 +2531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall
       objectReference: {fileID: 0}
-    - target: {fileID: 2693320706166395022, guid: d7537a9fb4a273b49a38ef0df9be2be8, type: 3}
-      propertyPath: m_TagString
-      value: Paper Ball
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2693320706166395022, guid: d7537a9fb4a273b49a38ef0df9be2be8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 684107208}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7537a9fb4a273b49a38ef0df9be2be8, type: 3}
 --- !u!1001 &391054599
 PrefabInstance:
@@ -3778,23 +3771,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 407020, guid: b39af83ea51e1f74fa9441c571c84b2d, type: 3}
   m_PrefabInstance: {fileID: 668852340}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &684107200 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2693320706166395022, guid: d7537a9fb4a273b49a38ef0df9be2be8, type: 3}
-  m_PrefabInstance: {fileID: 373773839}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &684107208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684107200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66ace87f5caa40f4d9185e4a86ecc0f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &702754401
 PrefabInstance:
   m_ObjectHideFlags: 0
