@@ -15,6 +15,7 @@ public class Logic : MonoBehaviour
     public XRBaseInteractor RightInteractor;
     public GameObject BouleDePapier;
 
+    public AudioSource BouleDePapierSound;
     void Awake()
     {
         makeABallActionLeft.action.Enable();
@@ -39,6 +40,10 @@ public class Logic : MonoBehaviour
             GameObject boule = Instantiate(BouleDePapier);
             XRGrabInteractable grabInteractable = boule.GetComponent<XRGrabInteractable>();
             LeftInteractor.interactionManager.SelectEnter((IXRSelectInteractor)LeftInteractor, grabInteractable);
+
+            //Jouer le son de la boule de papier
+            BouleDePapierSound.Play();
+
         }
     }
 
@@ -56,10 +61,14 @@ public class Logic : MonoBehaviour
             RightInteractor.interactionManager.SelectExit(RightInteractor, RightInteractor.GetOldestInteractableSelected());
             Destroy(heldObject);
 
+
             // Créer la boule de papier
             GameObject boule = Instantiate(BouleDePapier);
             XRGrabInteractable grabInteractable = boule.GetComponent<XRGrabInteractable>();
             RightInteractor.interactionManager.SelectEnter((IXRSelectInteractor)RightInteractor, grabInteractable);
+
+            //Jouer le son de la boule de papier
+            BouleDePapierSound.Play();
         }
     }
 

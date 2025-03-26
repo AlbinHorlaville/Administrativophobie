@@ -5468,6 +5468,7 @@ MonoBehaviour:
   LeftInteractor: {fileID: 28797558}
   RightInteractor: {fileID: 877817496}
   BouleDePapier: {fileID: 2693320706166395022, guid: d7537a9fb4a273b49a38ef0df9be2be8, type: 3}
+  BouleDePapierSound: {fileID: 1449762304}
 --- !u!4 &1108370335
 Transform:
   m_ObjectHideFlags: 0
@@ -6480,6 +6481,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.036308132, y: 0.08641659, z: 0.095531315}
   m_Center: {x: -0.000000029723065, y: 0.029653374, z: 0.0000000039630748}
+--- !u!82 &1449762304 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 519063481719763968, guid: d7537a9fb4a273b49a38ef0df9be2be8, type: 3}
+  m_PrefabInstance: {fileID: 373773839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1509712502
 PrefabInstance:
   m_ObjectHideFlags: 0
