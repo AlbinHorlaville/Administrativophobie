@@ -977,7 +977,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MakeABall",
+                    "name": "MakeABall Left",
                     "type": "Button",
                     "id": "32d31762-a7bc-4531-a77b-abacf8366c39",
                     "expectedControlType": "",
@@ -1276,11 +1276,11 @@
                 {
                     "name": "",
                     "id": "03d08c61-957c-49db-bd94-d3db274620d0",
-                    "path": "<XRController>{LeftHand}/{PrimaryAction}",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MakeABall",
+                    "action": "MakeABall Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -2066,6 +2066,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "MakeABall Right",
+                    "type": "Button",
+                    "id": "fd149d7a-7d8b-430f-85f8-25795517223a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2352,6 +2361,17 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "",
                     "action": "Translate Manipulation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a132d8ed-54f4-4fae-becb-6627cc944aad",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MakeABall Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

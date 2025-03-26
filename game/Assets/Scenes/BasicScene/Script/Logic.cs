@@ -9,32 +9,57 @@ public class Logic : MonoBehaviour
 
     public int score = 0;
     public TextMeshPro scoreMesh;
-    public InputActionReference makeABallAction;
-    public XRBaseInteractor interactor;
+    public InputActionReference makeABallActionLeft;
+    public InputActionReference makeABallActionRight;
+    public XRBaseInteractor LeftInteractor;
+    public XRBaseInteractor RightInteractor;
     public GameObject BouleDePapier;
 
     void Awake()
     {
-        makeABallAction.action.Enable();
-        makeABallAction.action.performed += MakeABall;
+        makeABallActionLeft.action.Enable();
+        makeABallActionLeft.action.performed += MakeABallLeft;
+        makeABallActionRight.action.Enable();
+        makeABallActionRight.action.performed += MakeABallRight;
     }
 
-    private void MakeABall(InputAction.CallbackContext context)
+    private void MakeABallLeft(InputAction.CallbackContext context)
     {
-        if (!interactor.hasSelection){
+        if (!LeftInteractor.hasSelection){
             return;
         }
 
-        GameObject heldObject = interactor.GetOldestInteractableSelected().transform.gameObject;
+        GameObject heldObject = LeftInteractor.GetOldestInteractableSelected().transform.gameObject;
         if (heldObject.name.Contains("Copy")){
             // Détruire la copie
-            interactor.interactionManager.SelectExit(interactor, interactor.GetOldestInteractableSelected());
+            LeftInteractor.interactionManager.SelectExit(LeftInteractor, LeftInteractor.GetOldestInteractableSelected());
             Destroy(heldObject);
             
             // Créer la boule de papier
             GameObject boule = Instantiate(BouleDePapier);
             XRGrabInteractable grabInteractable = boule.GetComponent<XRGrabInteractable>();
-            interactor.interactionManager.SelectEnter((IXRSelectInteractor)interactor, grabInteractable);
+            LeftInteractor.interactionManager.SelectEnter((IXRSelectInteractor)LeftInteractor, grabInteractable);
+        }
+    }
+
+    private void MakeABallRight(InputAction.CallbackContext context)
+    {
+        if (!RightInteractor.hasSelection)
+        {
+            return;
+        }
+
+        GameObject heldObject = RightInteractor.GetOldestInteractableSelected().transform.gameObject;
+        if (heldObject.name.Contains("Copy"))
+        {
+            // Détruire la copie
+            RightInteractor.interactionManager.SelectExit(RightInteractor, RightInteractor.GetOldestInteractableSelected());
+            Destroy(heldObject);
+
+            // Créer la boule de papier
+            GameObject boule = Instantiate(BouleDePapier);
+            XRGrabInteractable grabInteractable = boule.GetComponent<XRGrabInteractable>();
+            RightInteractor.interactionManager.SelectEnter((IXRSelectInteractor)RightInteractor, grabInteractable);
         }
     }
 

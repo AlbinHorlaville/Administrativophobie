@@ -465,7 +465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480925242510836759, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_TurnSpeed
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7347985736721345035, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Enabled
@@ -4373,6 +4373,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2693794429051986983, guid: 3da9a6a8ba89dd24190af21810156901, type: 3}
   m_PrefabInstance: {fileID: 869116447}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &877817496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1883230248363655243, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 28797556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a07ef133a37d140a87cdf1f1c75fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &881442801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5476,8 +5487,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreMesh: {fileID: 272286226}
-  makeABallAction: {fileID: 3895122555295542141, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  interactor: {fileID: 28797558}
+  makeABallActionLeft: {fileID: 3895122555295542141, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  makeABallActionRight: {fileID: 3917425795767995786, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  LeftInteractor: {fileID: 28797558}
+  RightInteractor: {fileID: 877817496}
   BouleDePapier: {fileID: 2693320706166395022, guid: d7537a9fb4a273b49a38ef0df9be2be8, type: 3}
 --- !u!4 &1108370335
 Transform:
