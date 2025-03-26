@@ -7,9 +7,8 @@ using System.Collections.Generic;
 public class BucketPopup : MonoBehaviour
 {
 
-    public TextMeshProUGUI bucketPunch;
-    public TextMeshProUGUI bucketNumber;
-    public CanvasGroup canvasGroup;
+    public TextMeshPro bucketPunch;
+    public TextMeshPro bucketNumber;
 
     private List<string> punchlines = new List<string>() {
         "Tu te crois drôle ? T'es dans le panier là...",
@@ -24,16 +23,9 @@ public class BucketPopup : MonoBehaviour
         new Color(0.33f, 0.42f, 1.0f)
     };
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void DoActivate()
     {
         StartCoroutine(LifeCycle());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private IEnumerator LifeCycle() {
@@ -44,7 +36,8 @@ public class BucketPopup : MonoBehaviour
         while (timeElapsed < fadeInDuration)
         {
             timeElapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(0f, 1f, timeElapsed / fadeInDuration);
+            bucketPunch.alpha = Mathf.Lerp(0f, 1f, timeElapsed / fadeInDuration);
+            bucketNumber.alpha = Mathf.Lerp(0f, 1f, timeElapsed / fadeInDuration);
             yield return null;
         }
 
@@ -58,12 +51,10 @@ public class BucketPopup : MonoBehaviour
         while (timeElapsed < fadeOutDuration)
         {
             timeElapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(1f, 0f, timeElapsed / fadeOutDuration);
+            bucketPunch.alpha = Mathf.Lerp(1f, 0f, timeElapsed / fadeOutDuration);
+            bucketNumber.alpha = Mathf.Lerp(1f, 0f, timeElapsed / fadeOutDuration);
             yield return null;
         }
-
-        // Destroy the object after fading out
-        Destroy(gameObject);
     }
 
     public void UpdateText(int bucketMult)

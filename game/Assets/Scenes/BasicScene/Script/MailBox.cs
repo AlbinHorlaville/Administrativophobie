@@ -8,6 +8,7 @@ public class MailBox : MonoBehaviour
     public XRSocketInteractor socket;
     public GameObject invalidDocPopupPrefab;
     public UpdateScreenMessage screenMessageUpdater;
+    public InvalidDocPopup invalidDocPopup;
     public Logic logic;
 
     private void OnEnable()
@@ -34,8 +35,7 @@ public class MailBox : MonoBehaviour
                 screenMessageUpdater.DocumentSubmitted();
             } else
             {
-                GameObject invalidDocPopup = Instantiate(invalidDocPopupPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                invalidDocPopup.GetComponent<InvalidDocPopup>().UpdateText(officialDoc.GetInvalidReason());
+                invalidDocPopup.UpdateText(officialDoc.GetInvalidReason());
             }
         }
     }

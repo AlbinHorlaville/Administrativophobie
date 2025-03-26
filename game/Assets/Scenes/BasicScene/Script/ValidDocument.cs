@@ -63,12 +63,14 @@ public class ValidDocument : MonoBehaviour
     // Update is called once per frame
     void Update() {}
 
-    void ValidatePaper(int index){
+    bool ValidatePaper(int index){
         if (!papers.Contains(index)){
-            return;
+            return false;
         }
         papers.Remove(index);
         textMeshMap[index].color = new Color(0, 0.5f, 0);
+
+        return true;
     }
 
     void Tamponner(){
@@ -83,8 +85,8 @@ public class ValidDocument : MonoBehaviour
         {
             idCard component = args.interactableObject.transform.GetComponent<idCard>();
             if (component != null){
-                ValidatePaper(component.id);
-                Destroy(args.interactableObject.transform.gameObject);
+                bool isValid = ValidatePaper(component.id);
+                if(isValid) Destroy(args.interactableObject.transform.gameObject);
             }
         }
     }

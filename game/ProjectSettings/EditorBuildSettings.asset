@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SceneHugo.unity
     guid: 055f381184026d748941f91075923911
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: b744ed6b82d91814f81a7da42269d68d
   - enabled: 1

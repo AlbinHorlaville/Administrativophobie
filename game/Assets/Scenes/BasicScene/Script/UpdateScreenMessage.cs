@@ -36,13 +36,13 @@ public class UpdateScreenMessage : MonoBehaviour
             doc = Instantiate(DocumentPrefab);
             doc.name = "Dossier d'inscription a la piscine";
             validDoc = doc.GetComponent<ValidDocument>();
-            validDoc.textMeshMap[0].text = doc.name;
+            validDoc.titre.text = doc.name;
             documents.Add(doc);
 
             doc = Instantiate(DocumentPrefab);
             doc.name = "Résiliation d'abonnement";
             validDoc = doc.GetComponent<ValidDocument>();
-            validDoc.textMeshMap[0].text = doc.name;
+            validDoc.titre.text = doc.name;
             documents.Add(doc);
         }
         else
@@ -80,7 +80,14 @@ public class UpdateScreenMessage : MonoBehaviour
         }
         else
         {
-            Instantiate(WinningScreenPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            StartCoroutine(Win());
         }
+    }
+
+    private IEnumerator Win()
+    {
+        yield return new WaitForSeconds(5f);
+
+        Application.Quit();
     }
 }

@@ -5,7 +5,7 @@ public class BucketChecker : MonoBehaviour
 {
     public Transform player;
     public Logic logic;
-    public GameObject bucketPopupPrefab;
+    public BucketPopup bucketPopup;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {}
@@ -22,8 +22,8 @@ public class BucketChecker : MonoBehaviour
 
             logic.UpdateScore(scoreMult * 100);
 
-            GameObject bucketPopup = Instantiate(bucketPopupPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            bucketPopup.GetComponent<BucketPopup>().UpdateText(scoreMult);
+            bucketPopup.UpdateText(scoreMult);
+            bucketPopup.DoActivate();
         }
     }
 

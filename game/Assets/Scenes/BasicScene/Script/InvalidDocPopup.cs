@@ -7,24 +7,17 @@ using System.Collections.Generic;
 public class InvalidDocPopup : MonoBehaviour
 {
 
-    public TextMeshProUGUI reasonText;
-    public CanvasGroup canvasGroup;
+    public TextMeshPro reasonText;
+    public TextMeshPro invalidDocText;
 
     private Dictionary<string, string> reasonTexts = new Dictionary<string, string>() {
         { "tampon", "Le tampon est nécessaire avant l'envoi du document." },
         { "document", "Le dossier est incomplet." }
     };
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void DoActivate()
     {
         StartCoroutine(LifeCycle());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private IEnumerator LifeCycle() {
@@ -35,7 +28,8 @@ public class InvalidDocPopup : MonoBehaviour
         while (timeElapsed < fadeInDuration)
         {
             timeElapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(0f, 1f, timeElapsed / fadeInDuration);
+            invalidDocText.alpha = Mathf.Lerp(0f, 1f, timeElapsed / fadeInDuration);
+            reasonText.alpha = Mathf.Lerp(0f, 1f, timeElapsed / fadeInDuration);
             yield return null;
         }
 
@@ -49,12 +43,10 @@ public class InvalidDocPopup : MonoBehaviour
         while (timeElapsed < fadeOutDuration)
         {
             timeElapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(1f, 0f, timeElapsed / fadeOutDuration);
+            invalidDocText.alpha = Mathf.Lerp(1f, 0f, timeElapsed / fadeOutDuration);
+            reasonText.alpha = Mathf.Lerp(1f, 0f, timeElapsed / fadeOutDuration);
             yield return null;
         }
-
-        // Destroy the object after fading out
-        Destroy(gameObject);
     }
 
     public void UpdateText(string reason)
