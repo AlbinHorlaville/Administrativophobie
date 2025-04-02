@@ -1391,7 +1391,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 10d2c91b9225945e99ec3d9ad789f262, type: 3}
   m_Resource: {fileID: 8300000, guid: 10d2c91b9225945e99ec3d9ad789f262, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1488,7 +1488,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 2db656f61d1a149a1864f4433dc15fb7, type: 3}
   m_Resource: {fileID: 8300000, guid: 2db656f61d1a149a1864f4433dc15fb7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1716,6 +1716,10 @@ PrefabInstance:
     - target: {fileID: 2492525781132050157, guid: b916dd4a52c4fb845a8256cb4b1bdab2, type: 3}
       propertyPath: m_InteractionManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662121447467898812, guid: b916dd4a52c4fb845a8256cb4b1bdab2, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6271590473203599283, guid: b916dd4a52c4fb845a8256cb4b1bdab2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3473,7 +3477,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 087707f17100e4a7084053e8b4d11fc4, type: 3}
   m_Resource: {fileID: 8300000, guid: 087707f17100e4a7084053e8b4d11fc4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9651,7 +9655,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: cb4a2fe2d5c904ea78c8fa3d9715631f, type: 3}
   m_Resource: {fileID: 8300000, guid: cb4a2fe2d5c904ea78c8fa3d9715631f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
