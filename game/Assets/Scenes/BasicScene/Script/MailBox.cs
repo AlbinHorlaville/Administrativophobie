@@ -10,6 +10,7 @@ public class MailBox : MonoBehaviour
     public UpdateScreenMessage screenMessageUpdater;
     public InvalidDocPopup invalidDocPopup;
     public Logic logic;
+    public AudioSource bruitMailbox;
 
     private void OnEnable()
     {
@@ -30,6 +31,7 @@ public class MailBox : MonoBehaviour
         {
             if (officialDoc.tampon.enabled == true)
             {
+                bruitMailbox.Play();
                 args.interactableObject.transform.gameObject.SetActive(false);
                 logic.UpdateScore(1000);
                 screenMessageUpdater.DocumentSubmitted();
