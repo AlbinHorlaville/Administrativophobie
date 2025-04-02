@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class Printer : MonoBehaviour
@@ -34,25 +35,18 @@ public class Printer : MonoBehaviour
 
 private void OnObjectPlaced(SelectEnterEventArgs args)
 {
-    if (args.interactableObject != null)
-    {
-        StartCoroutine(DelayedObjectPlacement(args, 7f)); // Lance un timer de 5 secondes
-    }
+    StartCoroutine(DelayedObjectPlacement(7f)); // Lance un timer de 5 secondes
 }
 
-private IEnumerator DelayedObjectPlacement(SelectEnterEventArgs args, float delay)
+private IEnumerator DelayedObjectPlacement(float delay)
 {
     bruitImpression.Play();
+    idCard component = socket.GetOldestInteractableSelected().transform.GetComponent<idCard>();
     yield return new WaitForSeconds(delay);
 
-    if (args.interactableObject != null)
+    if (component != null)
     {
-        idCard component = args.interactableObject.transform.GetComponent<idCard>();
-        if (component != null)
-        {
-            GameObject o = Instantiate(cardCopies[component.id], paperSpawnTransform.position, Quaternion.Euler(-90, 0, 90));
-            Debug.Log(o.name);
-        }
+        GameObject o = Instantiate(cardCopies[component.id], paperSpawnTransform.position, Quaternion.Euler(-90, 0, 90));
     }
 }
 

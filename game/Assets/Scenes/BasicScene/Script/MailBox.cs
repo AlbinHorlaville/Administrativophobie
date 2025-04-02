@@ -38,6 +38,7 @@ public class MailBox : MonoBehaviour
             } else
             {
                 invalidDocPopup.UpdateText(officialDoc.GetInvalidReason());
+                invalidDocPopup.DoActivate();
             }
         }
     }

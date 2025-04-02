@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.InputSystem.Utilities;
 
 public class ValidDocument : MonoBehaviour
 {
@@ -86,7 +87,25 @@ public class ValidDocument : MonoBehaviour
             idCard component = args.interactableObject.transform.GetComponent<idCard>();
             if (component != null){
                 bool isValid = ValidatePaper(component.id);
-                if(isValid) Destroy(args.interactableObject.transform.gameObject);
+                if (isValid)
+                {
+                    Destroy(args.interactableObject.transform.gameObject);
+                }
+                else
+                {
+                    XRGrabInteractable interactable = socket.GetOldestInteractableSelected() as XRGrabInteractable;
+                    socket.interactionManager.SelectExit(socket, socket.GetOldestInteractableSelected());
+                    Rigidbody rb = interactable.GetComponent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        rb.isKinematic = false; // Ensure physics affects it
+
+                        Vector3[] directions = { Vector3.forward, Vector3.back, Vector3.right, Vector3.left };
+                        Vector3 direction = directions[Random.Range(0, directions.Length)];
+
+                        rb.AddForce((Vector3.up + direction) * 2.0f, ForceMode.Impulse);
+                    }
+                }
             }
         }
     }

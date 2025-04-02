@@ -88,6 +88,6 @@ public class UpdateScreenMessage : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
 
-        Application.Quit();
+        Debug.Log("WIN");
     }
 }
