@@ -13,6 +13,8 @@ public class ValidDocument : MonoBehaviour
     public TextMeshPro tampon;
     public TextMeshPro titre;
     public XRSocketInteractor socket;
+    public AudioSource failSound;
+    public AudioSource successSound;
 
     // Create a Dictionary with paper interactable object name as the key, and their index in the textMeshMap as the value
     private Dictionary<string, int> paperMap = new Dictionary<string, int>() {
@@ -89,10 +91,12 @@ public class ValidDocument : MonoBehaviour
                 bool isValid = ValidatePaper(component.id);
                 if (isValid)
                 {
+                    successSound.Play();
                     Destroy(args.interactableObject.transform.gameObject);
                 }
                 else
                 {
+                    failSound.Play();
                     XRGrabInteractable interactable = socket.GetOldestInteractableSelected() as XRGrabInteractable;
                     socket.interactionManager.SelectExit(socket, socket.GetOldestInteractableSelected());
                     Rigidbody rb = interactable.GetComponent<Rigidbody>();
