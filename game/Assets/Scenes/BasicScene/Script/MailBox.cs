@@ -1,3 +1,4 @@
+using SojaExiles;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
@@ -11,6 +12,7 @@ public class MailBox : MonoBehaviour
     public InvalidDocPopup invalidDocPopup;
     public Logic logic;
     public AudioSource bruitMailbox;
+    public Telemetry telemetry;
 
     private void OnEnable()
     {
@@ -26,14 +28,25 @@ public class MailBox : MonoBehaviour
 
     private void OnObjectPlaced(SelectEnterEventArgs args)
     {
+        Debug.Log("posé !");
         ValidDocument officialDoc = args.interactableObject.transform.gameObject.GetComponent<ValidDocument>();
         if (officialDoc != null)
         {
             if (officialDoc.tampon.enabled == true)
-            {
+            { 
                 bruitMailbox.Play();
                 args.interactableObject.transform.gameObject.SetActive(false);
                 logic.UpdateScore(1000);
+                
+
+                // Update Telemetry
+                telemetry.ValidateDocument();
+
+                if (screenMessageUpdater.documents.Count == 1)
+                {
+                    telemetry.SaveTelemetry();
+                }
+                
                 screenMessageUpdater.DocumentSubmitted();
             } else
             {

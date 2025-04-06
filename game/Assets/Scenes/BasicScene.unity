@@ -1789,6 +1789,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8954058199399721298, guid: b916dd4a52c4fb845a8256cb4b1bdab2, type: 3}
+      propertyPath: telemetry
+      value: 
+      objectReference: {fileID: 1108370336}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4392,6 +4396,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 539893367}
+--- !u!82 &823839105 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4264154317716469380, guid: b528025291d2ac94a9d607939b826775, type: 3}
+  m_PrefabInstance: {fileID: 1509712502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &834974768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5577,6 +5586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1108370335}
   - component: {fileID: 1108370334}
+  - component: {fileID: 1108370336}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -5619,6 +5629,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108370336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108370333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281bf181fcde29746aca5a20ab18cae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1150917708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6739,9 +6761,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1108370334}
     - target: {fileID: 6731008170488993966, guid: b528025291d2ac94a9d607939b826775, type: 3}
+      propertyPath: telemetry
+      value: 
+      objectReference: {fileID: 1108370336}
+    - target: {fileID: 6731008170488993966, guid: b528025291d2ac94a9d607939b826775, type: 3}
       propertyPath: bruitMailbox
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 823839105}
     - target: {fileID: 6731008170488993966, guid: b528025291d2ac94a9d607939b826775, type: 3}
       propertyPath: screenMessageUpdater
       value: 
@@ -9630,6 +9656,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3797830582457577290, guid: be9bd0a3432513741995fc6ef9ec197f, type: 3}
+      propertyPath: telemetry
+      value: 
+      objectReference: {fileID: 1108370336}
     - target: {fileID: 3797830582457577290, guid: be9bd0a3432513741995fc6ef9ec197f, type: 3}
       propertyPath: bruitTampon
       value: 

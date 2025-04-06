@@ -12,6 +12,7 @@ public class Printer : MonoBehaviour
     public Transform paperSpawnTransform;
     public List<GameObject> cardCopies = new List<GameObject>();
     public AudioSource bruitImpression;
+    public Telemetry telemetry;
 
     private void OnEnable()
     {
@@ -35,7 +36,7 @@ public class Printer : MonoBehaviour
 
 private void OnObjectPlaced(SelectEnterEventArgs args)
 {
-    StartCoroutine(DelayedObjectPlacement(7f)); // Lance un timer de 5 secondes
+    StartCoroutine(DelayedObjectPlacement(7f)); // Lance un timer de 7 secondes
 }
 
 private IEnumerator DelayedObjectPlacement(float delay)
@@ -48,6 +49,8 @@ private IEnumerator DelayedObjectPlacement(float delay)
     {
         GameObject o = Instantiate(cardCopies[component.id], paperSpawnTransform.position, Quaternion.Euler(-90, 0, 90));
     }
+
+    telemetry.PrintPaper();
 }
 
     private void OnObjectRemoved(SelectExitEventArgs args) {}
