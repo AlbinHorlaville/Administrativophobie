@@ -8,6 +8,7 @@ public class BucketChecker : MonoBehaviour
     public BucketPopup bucketPopup;
     public AudioSource bruitTrashbinFailure;
     public AudioSource bruitTrashbinSuccess;
+    public Telemetry telemetry;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +30,7 @@ public class BucketChecker : MonoBehaviour
             }else
             {
                 bruitTrashbinSuccess.Play();
+                telemetry.ScoredAShot();
             }
             logic.UpdateScore(scoreMult * 100);
 
@@ -36,6 +38,4 @@ public class BucketChecker : MonoBehaviour
             bucketPopup.DoActivate();
         }
     }
-
-
 }

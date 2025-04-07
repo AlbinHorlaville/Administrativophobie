@@ -12,6 +12,7 @@ public class UpdateScreenMessage : MonoBehaviour
     public GameObject WinningScreenPrefab;
 
     public List<GameObject> documents = new List<GameObject>();
+    public Telemetry telemetry;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,19 +68,27 @@ public class UpdateScreenMessage : MonoBehaviour
 
     public void DocumentSubmitted()
     {
+        if (documents.Count <= 0)
+        {
+            return;
+        }
+
+        documents.RemoveAt(0);
+        textObject.text = "Documents en attente :";
+        foreach (GameObject document in documents)
+        {
+            textObject.text += "\n - " + document.name;
+            document.SetActive(false);
+        }
         if (documents.Count > 0)
         {
-            documents.RemoveAt(0);
-            textObject.text = "Documents en attente :";
-            foreach (GameObject document in documents)
-            {
-                textObject.text += "\n - " + document.name;
-                document.SetActive(false);
-            }
             documents[0].SetActive(true);
         }
-        else
+
+        telemetry.ValidateDocument();
+        if (documents.Count == 0)
         {
+            telemetry.SaveTelemetry();
             StartCoroutine(Win());
         }
     }

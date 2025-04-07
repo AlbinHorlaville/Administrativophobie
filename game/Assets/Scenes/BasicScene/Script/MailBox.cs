@@ -12,7 +12,6 @@ public class MailBox : MonoBehaviour
     public InvalidDocPopup invalidDocPopup;
     public Logic logic;
     public AudioSource bruitMailbox;
-    public Telemetry telemetry;
 
     private void OnEnable()
     {
@@ -37,15 +36,6 @@ public class MailBox : MonoBehaviour
                 bruitMailbox.Play();
                 args.interactableObject.transform.gameObject.SetActive(false);
                 logic.UpdateScore(1000);
-                
-
-                // Update Telemetry
-                telemetry.ValidateDocument();
-
-                if (screenMessageUpdater.documents.Count == 1)
-                {
-                    telemetry.SaveTelemetry();
-                }
                 
                 screenMessageUpdater.DocumentSubmitted();
             } else

@@ -4381,8 +4381,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textObject: {fileID: 2009213743}
   DocumentPrefab: {fileID: 1090006580139028760, guid: 7f3f6dae041f29844a854467cb6df20d, type: 3}
-  WinningScreenPrefab: {fileID: 0}
+  WinningScreenPrefab: {fileID: 7391616514977960968, guid: 8987915ae7cafa844845d06adca2f613, type: 3}
   documents: []
+  telemetry: {fileID: 1108370336}
 --- !u!114 &802011269
 MonoBehaviour:
   m_ObjectHideFlags: 0

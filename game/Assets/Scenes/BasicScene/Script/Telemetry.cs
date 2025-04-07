@@ -6,30 +6,29 @@ using UnityEngine;
 public class Telemetry : MonoBehaviour
 {
     private string filePath;
-    private float startTime;
-    private int NbDocumentsChecked = 0;
-    private int NbPapersPrinted = 0;
-    private int NbStamped = 0;
-    private List<int> documentTimes = new List<int>{ 0, 0, 0 };
+    public int NbDocumentsChecked = 0;
+    public int NbPapersPrinted = 0;
+    public int NbStamped = 0;
+    public int paniers = 0;
+    public List<int> documentTimes = new List<int>{ 0, 0, 0 };
 
     void Start()
     {
-        startTime = Time.time;
         string desktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
         filePath = Path.Combine(desktopPath, "telemetry.csv");
 
         // Crée l'en-tête si le fichier n'existe pas
         if (!File.Exists(filePath))
         {
-            File.WriteAllText(filePath, "Utilisateur,Temps total (secondes),Documents validés,Feuilles imprimées,Tamponnages,Temps 1er document,Temps 2ème document,Temps 3ème document\n");
+            File.WriteAllText(filePath, "Utilisateur;Temps total (secondes);Documents validés;Feuilles imprimées;Tamponnages;Temps 1er document;Temps 2ème document;Temps 3ème document;Paniers marqués\n");
         }
     }
 
     public void SaveTelemetry()
     {
         int userId = GetLastUserId() + 1;
-        float elapsedTime = Time.time - startTime;
-        string line = $"{userId},{(int)elapsedTime}, {NbDocumentsChecked}, {NbPapersPrinted}, {NbStamped}, {documentTimes[0]}, {documentTimes[1]}, {documentTimes[2]}";
+        float elapsedTime = Time.time;
+        string line = $"{userId};{(int)elapsedTime};{NbDocumentsChecked};{NbPapersPrinted};{NbStamped};{documentTimes[0]};{documentTimes[1]};{documentTimes[2]};{paniers}";
         File.AppendAllText(filePath, line + "\n");
 
         Debug.Log($"[Telemetry] Saved: User {userId}, Elapsed {elapsedTime:F2} sec");
@@ -61,7 +60,7 @@ public class Telemetry : MonoBehaviour
     {
         for (int i = 0; i < documentTimes.Count; i++){
             if (documentTimes[i] == 0){
-                documentTimes[i] = (int)(Time.time - startTime);
+                documentTimes[i] = (int)Time.time;
                 NbDocumentsChecked += 1;
                 return;
             }
@@ -74,5 +73,9 @@ public class Telemetry : MonoBehaviour
 
     public void Stamp(){
         NbStamped += 1;
+    }
+
+    public void ScoredAShot(){
+        paniers += 1;
     }
 }
