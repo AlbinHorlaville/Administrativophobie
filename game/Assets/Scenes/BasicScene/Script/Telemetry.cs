@@ -48,7 +48,7 @@ public class Telemetry : MonoBehaviour
         string lastLine = lines[lines.Length - 1];
 
         // Extrait le userId de la dernière ligne (UserId,ElapsedTime)
-        string[] parts = lastLine.Split(',');
+        string[] parts = lastLine.Split(';');
 
         if (int.TryParse(parts[0], out int lastId))
             return lastId;
