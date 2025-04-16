@@ -21,4 +21,9 @@ public class Chronometre : MonoBehaviour
         return string.Format("{0:00}:{1:00}", minutes, seconds); // Format 00:00
 
     }
+
+    public float GetElapsedTime()
+    {
+        return elapsedTime;
+    }
 }

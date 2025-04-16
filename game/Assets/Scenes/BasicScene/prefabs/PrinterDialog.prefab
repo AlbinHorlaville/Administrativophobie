@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1797435935376299090}
   - component: {fileID: 129051639893015291}
   m_Layer: 0
-  m_Name: AudioTrigger
+  m_Name: PrinterDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

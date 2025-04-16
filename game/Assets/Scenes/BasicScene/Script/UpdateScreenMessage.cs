@@ -99,6 +99,6 @@ public class UpdateScreenMessage : MonoBehaviour
         Confetti.Play();
         yield return new WaitForSeconds(5f);
 
-        Debug.Log("WIN");
+        SceneManager.LoadScene(0);
     }
 }
