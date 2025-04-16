@@ -26,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4035524209847148162}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.15712811, y: 0.000000029802319, z: 0.00000002235174, w: 0.9875783}
-  m_LocalPosition: {x: -0, y: 1.89, z: -0.81}
+  m_LocalRotation: {x: 0, y: 0.15712395, z: 0.9875789, w: 0}
+  m_LocalPosition: {x: 0.348, y: 1.172, z: -0.552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7795818204213908217}
   m_Father: {fileID: 6271590473203599283}
-  m_LocalEulerAnglesHint: {x: -18.08, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -18.08, y: 0, z: 180}
 --- !u!65 &5949304565320958235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -210,8 +210,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9124999115272152409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.017933127, y: -0.000000028948117, z: -0.0000000051433084, w: 0.9998392}
-  m_LocalPosition: {x: 0.16, y: -0.308, z: -0.447}
+  m_LocalRotation: {x: -0.017932307, y: 0, z: 0, w: 0.99983925}
+  m_LocalPosition: {x: 0.16, y: -0.477, z: -0.451}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -361,6 +361,7 @@ MonoBehaviour:
   - {fileID: 1090006580139028760, guid: 71a10217a1cc9fb4a94a3ee7a468b5fc, type: 3}
   - {fileID: 1090006580139028760, guid: d78ec843d0d949e4a9f382baf76dcd8c, type: 3}
   bruitImpression: {fileID: 3662121447467898812}
+  telemetry: {fileID: 0}
 --- !u!82 &3662121447467898812
 AudioSource:
   m_ObjectHideFlags: 0

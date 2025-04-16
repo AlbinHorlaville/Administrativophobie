@@ -10,6 +10,7 @@ public class UpdateScreenMessage : MonoBehaviour
     public TMP_Text textObject;
     public GameObject DocumentPrefab;
     public GameObject WinningScreenPrefab;
+    public ParticleSystem Confetti;
 
     public List<GameObject> documents = new List<GameObject>();
     public Telemetry telemetry;
@@ -29,13 +30,13 @@ public class UpdateScreenMessage : MonoBehaviour
         if (DocumentPrefab != null)
         {
             GameObject doc = Instantiate(DocumentPrefab);
-            doc.name = "Déclaration d'impôt";
+            doc.name = "Déclaration d'impôts";
             ValidDocument validDoc = doc.GetComponent<ValidDocument>();
             validDoc.titre.text = doc.name;
             documents.Add(doc);
 
             doc = Instantiate(DocumentPrefab);
-            doc.name = "Dossier d'inscription a la piscine";
+            doc.name = "Renouvellement du passeport";
             validDoc = doc.GetComponent<ValidDocument>();
             validDoc.titre.text = doc.name;
             documents.Add(doc);
@@ -95,6 +96,7 @@ public class UpdateScreenMessage : MonoBehaviour
 
     private IEnumerator Win()
     {
+        Confetti.Play();
         yield return new WaitForSeconds(5f);
 
         Debug.Log("WIN");
