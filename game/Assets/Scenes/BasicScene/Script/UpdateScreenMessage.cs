@@ -11,6 +11,7 @@ public class UpdateScreenMessage : MonoBehaviour
     public GameObject DocumentPrefab;
     public GameObject WinningScreenPrefab;
     public ParticleSystem Confetti;
+    public AudioSource taskDialog;
 
     public List<GameObject> documents = new List<GameObject>();
     public Telemetry telemetry;
@@ -73,6 +74,8 @@ public class UpdateScreenMessage : MonoBehaviour
         {
             return;
         }
+
+        taskDialog.Play();
 
         documents.RemoveAt(0);
         textObject.text = "Documents en attente :";
