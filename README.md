@@ -1,8 +1,11 @@
 # Administrativophobie
 Project by Albin Horlaville, Hugo Girard and Pascal Zhou.
 
-> [!WARNING]
-> TODO : insérer vidéo de présentation
+Cliquez sur la bande annonce ci dessous:
+
+
+[![Watch the video](https://img.youtube.com/vi/D499ffM0Hcc/hqdefault.jpg)](https://www.youtube.com/embed/D499ffM0Hcc)
+
 
 ## Concept
 - VR escape game.
